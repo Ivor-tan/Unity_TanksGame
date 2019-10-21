@@ -46,8 +46,9 @@ public class EnemyControl : MonoBehaviour
     {
 
 
-        if (collision.gameObject.tag.Equals("Enemys") ){
-  
+        if (collision.gameObject.tag.Equals("Enemys"))
+        {
+
             VectorChange();
         }
     }
@@ -161,9 +162,14 @@ public class EnemyControl : MonoBehaviour
 
         PlayerManager.Instance.Score++;
 
+        EnemysManger.Instance.EnemysTotal--;
+
+        EnemysManger.Instance.CreateProps(gameObject.transform.position);
+
         Instantiate(ExplodePerfab, transform.position, transform.rotation);
 
         Destroy(gameObject);
 
     }
+
 }

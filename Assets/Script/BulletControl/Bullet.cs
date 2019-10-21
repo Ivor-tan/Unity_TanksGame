@@ -37,6 +37,12 @@ public class Bullet : MonoBehaviour
     {
         switch (collision.tag)
         {
+
+            case ("Bullet"):
+
+                Destroy(gameObject);
+                break;
+
             case ("Tank"):
                
                 if (from == 1)

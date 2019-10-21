@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: ff6a4a0e6f7bf6749bbfe3730db5280a
+  - enabled: 1
     path: Assets/Scenes/TankGame.unity
     guid: 29547bd75beb4f74d9bb7ca056b0262d
   m_configObjects: {}

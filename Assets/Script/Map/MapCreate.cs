@@ -6,7 +6,7 @@ public class MapCreate : MonoBehaviour
     public GameObject[] MapItem;// 0 AirWall 1 Bairrar 2 Grees 3 Wall 4 Heart  5  Rivers  6 player01 7 Enemys
     private List<Vector3> mapPos = new List<Vector3> { };
 
-    private int EnemysNubmer = 3;
+    //private int EnemysNubmer = 3;
 
     //刷新敌人计时器
     public float EnemysBronTime = 0;
@@ -137,10 +137,10 @@ public class MapCreate : MonoBehaviour
 
         if (EnemysBronTime > 10)
         {
-  
-            if (EnemysNubmer < 15)
+
+            if (EnemysManger.Instance.EnemysTotal < 15)
             {
-                EnemysNubmer += EnemysNubmer;
+                EnemysManger.Instance.EnemysTotal++;
                 initEnemys();
             }
             EnemysBronTime = 0;

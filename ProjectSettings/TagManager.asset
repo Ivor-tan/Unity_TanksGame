@@ -12,6 +12,7 @@ TagManager:
   - AirWall
   - Rivers
   - Enemys
+  - Bullet
   layers:
   - Default
   - TransparentFX
