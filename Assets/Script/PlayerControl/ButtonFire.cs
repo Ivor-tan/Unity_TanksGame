@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class ButtonFire : MonoBehaviour
 {
+    //音效
+    public AudioClip FireAudioSource;
+
+
     private GameObject buttonFire;
     public GameObject bullet;
     private GameObject player;
@@ -41,6 +45,10 @@ public class ButtonFire : MonoBehaviour
         {
             if (timeVal > 1)
             {
+                print("音效");
+                //音效
+                AudioSource.PlayClipAtPoint(FireAudioSource, player.transform.position);
+
                 timeVal = 0;
                
                 switch (player.GetComponent<Player>().direction)

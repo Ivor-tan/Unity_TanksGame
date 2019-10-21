@@ -705,6 +705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881ba84f6cd23224388489d83ce64a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FireAudioSource: {fileID: 8300000, guid: 4b4363003d904624f89fb930c3522b7e, type: 3}
   bullet: {fileID: 6943898334700623846, guid: 0e831dfb51f72d6418698a41fa1ca37c, type: 3}
 --- !u!114 &833016640
 MonoBehaviour:
@@ -1435,7 +1436,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -258.9, y: -42}
+  m_AnchoredPosition: {x: -258.9, y: -91}
   m_SizeDelta: {x: 94.3, y: 60.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1551344165
@@ -1646,7 +1647,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -311.7, y: 33}
+  m_AnchoredPosition: {x: -311.7, y: -32}
   m_SizeDelta: {x: 108.5, y: 70.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1640659824
@@ -1908,7 +1909,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -354, y: -42}
+  m_AnchoredPosition: {x: -354, y: -91}
   m_SizeDelta: {x: 90, y: 58.15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1826115888
@@ -2119,7 +2120,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -315, y: -124}
+  m_AnchoredPosition: {x: -315, y: -153}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2066134918

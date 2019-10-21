@@ -7,6 +7,7 @@ public class Heart : MonoBehaviour
     private SpriteRenderer GG;
     public Sprite Broken;
     public GameObject explosionPrefab;
+    public AudioClip OverAudioSource;
 
   
 
@@ -22,15 +23,17 @@ public class Heart : MonoBehaviour
 
     }
 
-    private void Die()
-    {
-        GG = GetComponent<SpriteRenderer>();
-
-    }
+    //private void Die()
+    //{
+    //    GG = GetComponent<SpriteRenderer>();
+    //}
 
 
     private void GameOver()
     {
+
+        AudioSource.PlayClipAtPoint(OverAudioSource,gameObject.transform.position);
+
         PlayerManager.Instance.isOver = true;
 
         GG = GetComponent<SpriteRenderer>();

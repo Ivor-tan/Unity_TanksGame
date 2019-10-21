@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6960196432014201751}
   - component: {fileID: 6648593309951115299}
   m_Layer: 0
-  m_Name: Player1_0 1
+  m_Name: Player1_0
   m_TagString: Tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,6 +150,7 @@ MonoBehaviour:
     type: 3}
   Defendedfab: {fileID: 3795370587768990739}
   BornPerfab: {fileID: 110507314585884976}
+  ExplodeAudioSource: {fileID: 8300000, guid: efd01a624bf1d3c4397c99fabc2c3118, type: 3}
 --- !u!1001 &2015449238309177711
 PrefabInstance:
   m_ObjectHideFlags: 0

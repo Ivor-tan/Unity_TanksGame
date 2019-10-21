@@ -15,6 +15,10 @@ public class EnemyControl : MonoBehaviour
     private SpriteRenderer EnemysImage;
     public List<Sprite> Images; //up   down  lift  right
 
+    //音效资源
+    public AudioClip FireAudioSource;
+    public AudioClip ExplodeAudioSource;
+
     //计时器
     public float transformVectorTime = 0;
     public float FireTime = 0;
@@ -77,6 +81,8 @@ public class EnemyControl : MonoBehaviour
 
     private void Fire()
     {
+        //音效
+        AudioSource.PlayClipAtPoint(FireAudioSource,gameObject.transform.position);
 
         switch (direction)
         {
@@ -159,6 +165,7 @@ public class EnemyControl : MonoBehaviour
 
     public void Die()
     {
+        AudioSource.PlayClipAtPoint(ExplodeAudioSource, gameObject.transform.position);
 
         PlayerManager.Instance.Score++;
 

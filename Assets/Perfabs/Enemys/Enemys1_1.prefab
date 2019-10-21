@@ -153,5 +153,7 @@ MonoBehaviour:
   - {fileID: 21300032, guid: 3348c3d1a93bce84fba2264f6a8458f4, type: 3}
   - {fileID: 21300048, guid: 3348c3d1a93bce84fba2264f6a8458f4, type: 3}
   - {fileID: 21300018, guid: 3348c3d1a93bce84fba2264f6a8458f4, type: 3}
+  FireAudioSource: {fileID: 8300000, guid: 4b4363003d904624f89fb930c3522b7e, type: 3}
+  ExplodeAudioSource: {fileID: 8300000, guid: efd01a624bf1d3c4397c99fabc2c3118, type: 3}
   transformVectorTime: 0
   FireTime: 0

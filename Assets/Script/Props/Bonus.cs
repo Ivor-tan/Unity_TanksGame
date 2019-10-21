@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Bonus : MonoBehaviour
 {
+    public AudioClip GetBonsAudioSource;
+
     //消失倒计时
     private float GoneTime = 25;
     // Start is called before the first frame update
@@ -26,6 +28,8 @@ public class Bonus : MonoBehaviour
     {
         if (collision.tag == "Tank")
         {
+            AudioSource.PlayClipAtPoint(GetBonsAudioSource, gameObject.transform.position);
+
             PlayerManager.Instance.Player_Health++;
             Destroy(gameObject);
         }

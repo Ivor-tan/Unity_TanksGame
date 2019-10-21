@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 8727625188222552149}
   - component: {fileID: 5588861815601694132}
   m_Layer: 0
-  m_Name: Bonus 1
-  m_TagString: Bullet
+  m_Name: Bonus
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,3 +141,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1e54a7c67f6fc144bcff1343dcc5276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GetBonsAudioSource: {fileID: 8300000, guid: 78ea59a2d35da144c983105394d01c64, type: 3}

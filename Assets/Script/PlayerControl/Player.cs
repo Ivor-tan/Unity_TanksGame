@@ -10,16 +10,17 @@ public class Player : MonoBehaviour
     public GameObject ExplodePerfab;
     public GameObject Defendedfab;
     public GameObject BornPerfab;
-  
+    //音效
 
+    public AudioClip ExplodeAudioSource;
 
     private bool isDefended = true;
     private float isDefendedTime = 4;
-    private float BornTime =1;
+    private float BornTime = 1;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -27,7 +28,7 @@ public class Player : MonoBehaviour
     {
         if (isDefended)
         {
-           
+
             isDefendedTime -= Time.deltaTime;
             BornTime -= Time.deltaTime;
 
@@ -38,17 +39,17 @@ public class Player : MonoBehaviour
             {
 
                 BornPerfab.SetActive(false);
-               
+
             }
 
             if (isDefendedTime <= 0)
             {
-                
+
                 Defendedfab.SetActive(false);
                 isDefended = false;
             }
         }
-       
+
     }
 
     private void Die()
@@ -58,17 +59,19 @@ public class Player : MonoBehaviour
             return;
         }
 
+        AudioSource.PlayClipAtPoint(ExplodeAudioSource, gameObject.transform.position);
         PlayerManager.Instance.Player_Health--;
         PlayerManager.Instance.isDead = true;
 
-        Instantiate(ExplodePerfab, transform.position,transform.rotation);
+        Instantiate(ExplodePerfab, transform.position, transform.rotation);
 
         Destroy(gameObject);
 
     }
 
-    private void Recover() {
-       
+    private void Recover()
+    {
+
 
 
     }
