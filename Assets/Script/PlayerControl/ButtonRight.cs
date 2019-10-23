@@ -17,11 +17,11 @@ public class ButtonRight : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Tank");
+        //player = GameObject.FindGameObjectWithTag("Tank");
 
-        playerImage = player.GetComponent<SpriteRenderer>();
+        //playerImage = player.GetComponent<SpriteRenderer>();
 
-        speed = player.GetComponent<Player>().Speed;
+        //speed = player.GetComponent<Player>().Speed;
 
     }
 
@@ -38,6 +38,7 @@ public class ButtonRight : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             FindPlayer();
         }
     }
+
 
     private void FindPlayer()
     {

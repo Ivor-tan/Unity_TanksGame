@@ -12,6 +12,10 @@ public class PlayerManager : MonoBehaviour
     //玩家属性设定
     public int Player_Health = 3;
     public int Score = 0;
+    private double timeVal = 1.5;
+    private float isDefendedTime = 4;
+    private bool isDefended = true;
+    private float bornTime = 1;
 
     //玩家是否存活
     public bool isDead = false;
@@ -26,6 +30,10 @@ public class PlayerManager : MonoBehaviour
     private static PlayerManager instance;
 
     public static PlayerManager Instance { get => instance; set => instance = value; }
+    public double TimeVal { get => timeVal; set => timeVal = value; }
+    public float IsDefendedTime { get => isDefendedTime; set => isDefendedTime = value; }
+    public bool IsDefended { get => isDefended; set => isDefended = value; }
+    public float BornTime { get => bornTime; set => bornTime = value; }
 
     private void Awake()
     {
@@ -47,9 +55,7 @@ public class PlayerManager : MonoBehaviour
         }
         if (isOver)
         {
-
             GameOver();
-
         }
     }
 
@@ -83,5 +89,9 @@ public class PlayerManager : MonoBehaviour
 
     }
 
+    public void PlayerDateRecover()
+    {
+         timeVal = 1.5;
+    }
 
 }

@@ -21,7 +21,7 @@ public class ButtonFire : MonoBehaviour
     private void Awake()
     {
         buttonFire = GameObject.Find("ButtonFire");
-        
+
     }
 
     // Start is called before the first frame update
@@ -33,7 +33,8 @@ public class ButtonFire : MonoBehaviour
     void Update()
     {
         timeVal = timeVal + Time.deltaTime;
-        if (player == null) {
+        if (player == null && PlayerManager.Instance.Player_Health > 0)
+        {
             player = GameObject.FindGameObjectWithTag("Tank");
         }
     }
@@ -43,18 +44,20 @@ public class ButtonFire : MonoBehaviour
 
         buttonFire.GetComponent<Button>().onClick.AddListener(delegate ()
         {
-            if (timeVal > 1)
+            if (timeVal > PlayerManager.Instance.TimeVal)
             {
-                print("音效");
+
+                //PropsManager.Instance.CreateProps(player.transform.position);
+
                 //音效
                 AudioSource.PlayClipAtPoint(FireAudioSource, player.transform.position);
 
                 timeVal = 0;
-               
+
                 switch (player.GetComponent<Player>().direction)
                 {
                     case (1):
-                        Instantiate(bullet, player.GetComponent<Transform>().position, Quaternion.Euler(new Vector3(0, 0, 0))).GetComponent<Bullet>().SetFrom(0);                   
+                        Instantiate(bullet, player.GetComponent<Transform>().position, Quaternion.Euler(new Vector3(0, 0, 0))).GetComponent<Bullet>().SetFrom(0);
                         break;
                     case (2):
                         Instantiate(bullet, player.GetComponent<Transform>().position, Quaternion.Euler(new Vector3(0, 0, 180))).GetComponent<Bullet>().SetFrom(0);
@@ -68,10 +71,10 @@ public class ButtonFire : MonoBehaviour
                 }
             }
 
-                //Instantiate(bullet, player.GetComponent<Transform>().position, transform.rotation);
-                //player.transform.Translate(Vector3.right*3*Time.deltaTime,Space.World);
+            //Instantiate(bullet, player.GetComponent<Transform>().position, transform.rotation);
+            //player.transform.Translate(Vector3.right*3*Time.deltaTime,Space.World);
 
-            }
+        }
       );
 
     }

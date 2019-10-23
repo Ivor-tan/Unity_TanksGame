@@ -3,18 +3,27 @@ using UnityEngine;
 
 public class MapCreate : MonoBehaviour
 {
-    public GameObject[] MapItem;// 0 AirWall 1 Bairrar 2 Grees 3 Wall 4 Heart  5  Rivers  6 player01 7 Enemys
+    public GameObject[] MapItem;// 0 AirWall 1 Bairrar 2 Grees 3 Wall 4  Rivers   5  player01  6 Enemys  7 Heart  wall  8 Heart  bairrar
     private List<Vector3> mapPos = new List<Vector3> { };
 
     //private int EnemysNubmer = 3;
 
     //刷新敌人计时器
     public float EnemysBronTime = 0;
+    //老家保护时间计时器  protect
+    public float ProtectTime = 120;
 
+    //老家对象
+    private GameObject HeartObject;
+    private bool isWall = true;
 
+    private static MapCreate instance;
+
+    public static MapCreate Instance { get => instance; set => instance = value; }
 
     public void Awake()
     {
+        Instance = this;
         MyMapCreate();
     }
 
@@ -32,9 +41,9 @@ public class MapCreate : MonoBehaviour
 
     private void initEnemys()
     {
-        CreateItem(MapItem[7], new Vector3(-9, 8, 0), Quaternion.identity);
-        CreateItem(MapItem[7], new Vector3(0, 8, 0), Quaternion.identity);
-        CreateItem(MapItem[7], new Vector3(9, 8, 0), Quaternion.identity);
+        CreateItem(MapItem[6], new Vector3(-9, 8, 0), Quaternion.identity);
+        CreateItem(MapItem[6], new Vector3(0, 8, 0), Quaternion.identity);
+        CreateItem(MapItem[6], new Vector3(9, 8, 0), Quaternion.identity);
 
         mapPos.Add(new Vector3(-9, 8, 0));
         mapPos.Add(new Vector3(0, 8, 0));
@@ -50,32 +59,37 @@ public class MapCreate : MonoBehaviour
 
     private void initHeart()
     {
+       
+        if (isWall)
+        {
+            HeartObject = Instantiate(MapItem[7], new Vector3(0, -8, 0), Quaternion.identity);
+            HeartObject.transform.SetParent(gameObject.transform);
+        }
+        else
+        {
+            HeartObject = Instantiate(MapItem[8], new Vector3(0, -8, 0), Quaternion.identity);
+            HeartObject.transform.SetParent(gameObject.transform);
 
-        CreateItem(MapItem[4], new Vector3(0, -8, 0), Quaternion.identity);
+        }
+    }
 
-        CreateItem(MapItem[3], new Vector3(0, -7, 0), Quaternion.identity);
-        CreateItem(MapItem[3], new Vector3(-1, -7, 0), Quaternion.identity);
-        CreateItem(MapItem[3], new Vector3(1, -7, 0), Quaternion.identity);
-        CreateItem(MapItem[3], new Vector3(1, -8, 0), Quaternion.identity);
-        CreateItem(MapItem[3], new Vector3(-1, -8, 0), Quaternion.identity);
+    private void initPlayer()
+    {
+        CreateItem(MapItem[5], new Vector3(-2, -8, 0), Quaternion.identity);
+        mapPos.Add(new Vector3(-2, -8, 0));
+    }
+
+    private void initMap(int Bairrar, int Grees, int Wall, int Rivers)
+    {
 
         mapPos.Add(new Vector3(0, -7, 0));
         mapPos.Add(new Vector3(-1, -7, 0));
         mapPos.Add(new Vector3(1, -7, 0));
         mapPos.Add(new Vector3(1, -8, 0));
         mapPos.Add(new Vector3(-1, -8, 0));
+        mapPos.Add(new Vector3(0, 0, 0));
 
-
-    }
-
-    private void initPlayer()
-    {
-        CreateItem(MapItem[6], new Vector3(-2, -8, 0), Quaternion.identity);
-        mapPos.Add(new Vector3(-2, -8, 0));
-    }
-
-    private void initMap(int Bairrar, int Grees, int Wall, int Rivers)
-    {
+        CreateItem(MapItem[1], new Vector3(0,0,0), Quaternion.identity);
         for (int i = 0; i < Bairrar; i++)
         {
             CreateItem(MapItem[1], CreatePos(), Quaternion.identity);
@@ -90,7 +104,7 @@ public class MapCreate : MonoBehaviour
         }
         for (int i = 0; i < Rivers; i++)
         {
-            CreateItem(MapItem[5], CreatePos(), Quaternion.identity);
+            CreateItem(MapItem[4], CreatePos(), Quaternion.identity);
         }
 
     }
@@ -124,6 +138,22 @@ public class MapCreate : MonoBehaviour
         return false;
     }
 
+    public void HeartIsBairrar()
+    {
+        isWall = false;
+        Destroy(HeartObject);  
+        initHeart();
+
+    }
+
+    public void HeartIsWall()
+    {
+        isWall = true;
+        Destroy(HeartObject);
+        initHeart();
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -144,6 +174,19 @@ public class MapCreate : MonoBehaviour
                 initEnemys();
             }
             EnemysBronTime = 0;
+        }
+
+        if (!isWall) {
+
+            ProtectTime -= Time.deltaTime;
+        }
+       
+        if (ProtectTime <= 0)
+        {
+
+            HeartIsWall();
+            ProtectTime = 120;
+
         }
 
     }

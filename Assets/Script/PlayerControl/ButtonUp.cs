@@ -54,6 +54,8 @@ public class ButtonUp : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     }
 
 
+
+
     private void FixedUpdate()
     {
         if (isPointerDown && player.GetComponent<Player>().isMove == 1)

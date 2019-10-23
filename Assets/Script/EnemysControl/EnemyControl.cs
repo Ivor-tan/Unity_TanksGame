@@ -7,7 +7,7 @@ public class EnemyControl : MonoBehaviour
 
     public GameObject ExplodePerfab;
     public GameObject BulletPerfab;
-    public int Speed = 3;
+    //public int Speed = 3;
     public int Moveing = 0;
     public int direction = 2;   //1  up  2 down  3 lift  4 right
 
@@ -20,12 +20,13 @@ public class EnemyControl : MonoBehaviour
     public AudioClip ExplodeAudioSource;
 
     //计时器
-    public float transformVectorTime = 0;
-    public float FireTime = 0;
+    private float transformVectorTime = 0;
+    private float FireTime = 0;
 
     private void Awake()
     {
         EnemysImage = GetComponent<SpriteRenderer>();
+        gameObject.transform.SetParent(GameObject.Find("EnemysManger").transform);
     }
 
 
@@ -48,7 +49,6 @@ public class EnemyControl : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
 
         if (collision.gameObject.tag.Equals("Enemys"))
         {
@@ -81,8 +81,14 @@ public class EnemyControl : MonoBehaviour
 
     private void Fire()
     {
+        if (!EnemysManger.Instance.IsFire) {
+
+            return;
+        }
+
+
         //音效
-        AudioSource.PlayClipAtPoint(FireAudioSource,gameObject.transform.position);
+        AudioSource.PlayClipAtPoint(FireAudioSource, gameObject.transform.position);
 
         switch (direction)
         {
@@ -136,8 +142,11 @@ public class EnemyControl : MonoBehaviour
     private void Move()
     {
 
+        int Speed = EnemysManger.Instance.Speed;
+
         switch (direction)
         {
+            
             case 1:
                 EnemysImage.sprite = Images[0];
                 transform.Translate(Vector3.up * Speed * Time.deltaTime, Space.World);
@@ -157,21 +166,18 @@ public class EnemyControl : MonoBehaviour
 
         }
 
-
-
-
-
     }
 
     public void Die()
     {
+
         AudioSource.PlayClipAtPoint(ExplodeAudioSource, gameObject.transform.position);
 
         PlayerManager.Instance.Score++;
 
         EnemysManger.Instance.EnemysTotal--;
 
-        EnemysManger.Instance.CreateProps(gameObject.transform.position);
+        EnemysManger.Instance.CreateProps(transform.position);
 
         Instantiate(ExplodePerfab, transform.position, transform.rotation);
 

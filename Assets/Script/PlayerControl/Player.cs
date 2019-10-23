@@ -14,54 +14,69 @@ public class Player : MonoBehaviour
 
     public AudioClip ExplodeAudioSource;
 
-    private bool isDefended = true;
-    private float isDefendedTime = 4;
+    //private bool isDefended;
+    //private float isDefendedTime;
     private float BornTime = 1;
     // Start is called before the first frame update
     void Start()
     {
-
+        PlayerManager.Instance.IsDefended = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isDefended)
+
+        Defend();
+
+    }
+
+    private void Defend()
+    {
+   
+        if (PlayerManager.Instance.IsDefended)
         {
 
-            isDefendedTime -= Time.deltaTime;
+            PlayerManager.Instance.IsDefendedTime -= Time.deltaTime;
+
             BornTime -= Time.deltaTime;
 
             Defendedfab.SetActive(true);
-            BornPerfab.SetActive(true);
 
             if (BornTime <= 0)
             {
-
                 BornPerfab.SetActive(false);
-
+                //BornTime = 1;
             }
 
-            if (isDefendedTime <= 0)
+
+            if (PlayerManager.Instance.IsDefendedTime <= 0)
             {
 
                 Defendedfab.SetActive(false);
-                isDefended = false;
+
+                PlayerManager.Instance.IsDefended = false;
+
+                PlayerManager.Instance.IsDefendedTime = 4;
+
             }
         }
-
     }
 
     private void Die()
     {
-        if (isDefended)
+        if (PlayerManager.Instance.IsDefended)
         {
             return;
         }
 
         AudioSource.PlayClipAtPoint(ExplodeAudioSource, gameObject.transform.position);
+
         PlayerManager.Instance.Player_Health--;
+
         PlayerManager.Instance.isDead = true;
+
+        PlayerManager.Instance.PlayerDateRecover();
 
         Instantiate(ExplodePerfab, transform.position, transform.rotation);
 

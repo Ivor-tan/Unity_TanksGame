@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bonus : MonoBehaviour
+public class Bonus_1 : MonoBehaviour
 {
     public AudioClip GetBonsAudioSource;
 
@@ -30,7 +30,8 @@ public class Bonus : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(GetBonsAudioSource, gameObject.transform.position);
 
-            PlayerManager.Instance.Player_Health++;
+            EnemysManger.Instance.AllStop();
+            
             Destroy(gameObject);
         }
     }

@@ -141,11 +141,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a180f59ab1c32841b8335ec936d4b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gggg: {fileID: 1905411582949287279, guid: bd47e5e54d6ed6c46a53f8570644bbeb, type: 3}
   ExplodePerfab: {fileID: 6487749477160434934, guid: efa1a99c3257c124d9382c6a2719b042,
     type: 3}
   BulletPerfab: {fileID: 6943898334700623846, guid: 0e831dfb51f72d6418698a41fa1ca37c,
     type: 3}
-  Speed: 3
   Moveing: 0
   direction: 2
   Images:
@@ -155,5 +155,3 @@ MonoBehaviour:
   - {fileID: 21300018, guid: 3348c3d1a93bce84fba2264f6a8458f4, type: 3}
   FireAudioSource: {fileID: 8300000, guid: 4b4363003d904624f89fb930c3522b7e, type: 3}
   ExplodeAudioSource: {fileID: 8300000, guid: efd01a624bf1d3c4397c99fabc2c3118, type: 3}
-  transformVectorTime: 0
-  FireTime: 0

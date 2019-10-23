@@ -412,7 +412,7 @@ PrefabInstance:
     - target: {fileID: 9212629400720503820, guid: 93bab9d0dc487064ba36d2f3ca5aadb7,
         type: 3}
       propertyPath: m_Name
-      value: AirWall (1)
+      value: Map_AirWall_2
       objectReference: {fileID: 0}
     - target: {fileID: 6323838561516050413, guid: 93bab9d0dc487064ba36d2f3ca5aadb7,
         type: 3}
@@ -690,7 +690,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 351, y: -41}
+  m_AnchoredPosition: {x: 338.6, y: -124.2}
   m_SizeDelta: {x: 150, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &833016639
@@ -875,7 +875,7 @@ PrefabInstance:
     - target: {fileID: 9212629400720503820, guid: 93bab9d0dc487064ba36d2f3ca5aadb7,
         type: 3}
       propertyPath: m_Name
-      value: AirWall (3)
+      value: Map_AirWall_4
       objectReference: {fileID: 0}
     - target: {fileID: 6323838561516050413, guid: 93bab9d0dc487064ba36d2f3ca5aadb7,
         type: 3}
@@ -974,9 +974,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 187df49165e62214f854d921b3c71860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemysTotal: 3
-  Props:
-  - {fileID: 1905411582949287279, guid: 11f26de9385e40a46be8fcac25fcd1f9, type: 3}
 --- !u!4 &1120801436
 Transform:
   m_ObjectHideFlags: 0
@@ -990,6 +987,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1140900120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1140900122}
+  - component: {fileID: 1140900121}
+  m_Layer: 0
+  m_Name: PropsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1140900121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140900120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7117a7275ccc0ca42bb59d9d5d280cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Props:
+  - {fileID: 1905411582949287279, guid: 11f26de9385e40a46be8fcac25fcd1f9, type: 3}
+  - {fileID: 1905411582949287279, guid: bd47e5e54d6ed6c46a53f8570644bbeb, type: 3}
+  - {fileID: 1905411582949287279, guid: 372ae409417b5624588e73c8503b456f, type: 3}
+  - {fileID: 1905411582949287279, guid: 5561b544fce72e74a905e02410431aa7, type: 3}
+  - {fileID: 1905411582949287279, guid: 3b57172b70524d74199613adf0e3d046, type: 3}
+  - {fileID: 1905411582949287279, guid: 9b4546f885d6b8c4fb651ea8a0b0321d, type: 3}
+--- !u!4 &1140900122
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140900120}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1040.64, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1176916145
 GameObject:
@@ -1271,7 +1318,7 @@ PrefabInstance:
     - target: {fileID: 9212629400720503820, guid: 93bab9d0dc487064ba36d2f3ca5aadb7,
         type: 3}
       propertyPath: m_Name
-      value: AirWall
+      value: Map_AirWall_1
       objectReference: {fileID: 0}
     - target: {fileID: 6323838561516050413, guid: 93bab9d0dc487064ba36d2f3ca5aadb7,
         type: 3}
@@ -1394,11 +1441,13 @@ MonoBehaviour:
   - {fileID: 1408507081861601029, guid: d254c6afae79206419d1d6ee2256fbf0, type: 3}
   - {fileID: 2593496896249336463, guid: 72e44276cf50186498b2e454a39c0cd4, type: 3}
   - {fileID: 810377581811604473, guid: 0ed092345dc475749890427ad2484c90, type: 3}
-  - {fileID: 4954346817862529935, guid: 0b658f6186cba524792ee2d0b1e1190c, type: 3}
   - {fileID: 6849743487028033296, guid: 508c7a5444286ef468a806569ef4b102, type: 3}
   - {fileID: 6648593309951115308, guid: 24ddf13199ea752438d212209f394c01, type: 3}
   - {fileID: 4440607065052537475, guid: 9aded301ebcf05b42ac6a02dbcdf4ceb, type: 3}
+  - {fileID: 4190525893593036664, guid: f7eaeef890082ba46bcaea957c6738d4, type: 3}
+  - {fileID: 7195257846349151993, guid: f04c7ed94586e72438e753f3d0592396, type: 3}
   EnemysBronTime: 0
+  ProtectTime: 120
 --- !u!1 &1551344163
 GameObject:
   m_ObjectHideFlags: 0
@@ -1462,7 +1511,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.4627451}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1494,7 +1543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.40392157}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1705,7 +1754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.4392157}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1802,7 +1851,7 @@ PrefabInstance:
     - target: {fileID: 9212629400720503820, guid: 93bab9d0dc487064ba36d2f3ca5aadb7,
         type: 3}
       propertyPath: m_Name
-      value: AirWall (2)
+      value: Map_AirWall_3
       objectReference: {fileID: 0}
     - target: {fileID: 6323838561516050413, guid: 93bab9d0dc487064ba36d2f3ca5aadb7,
         type: 3}
@@ -1967,7 +2016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.46666667}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2178,7 +2227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.4627451}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
