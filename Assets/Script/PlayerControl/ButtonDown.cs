@@ -38,7 +38,7 @@ public class ButtonDown : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     private void FixedUpdate()
     {
-        if (isPointerDown && player.GetComponent<Player>().isMove == 2)
+        if (isPointerDown && player.GetComponent<Player1>().isMove == 2)
         {
             player.transform.Translate(Vector3.down * speed * Time.deltaTime, Space.World);
         }
@@ -51,18 +51,18 @@ public class ButtonDown : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
         playerImage = player.GetComponent<SpriteRenderer>();
 
-        speed = player.GetComponent<Player>().Speed;
+        speed = player.GetComponent<Player1>().Speed;
 
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
         isPointerDown = true;
-        player.GetComponent<Player>().direction = 2;
-        if (player.GetComponent<Player>().isMove == 0)
+        player.GetComponent<Player1>().direction = 2;
+        if (player.GetComponent<Player1>().isMove == 0)
         {
             playerImage.sprite = image;
-            player.GetComponent<Player>().isMove = 2;
+            player.GetComponent<Player1>().isMove = 2;
         }
 
 
@@ -71,7 +71,7 @@ public class ButtonDown : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
 
         isPointerDown = false;
-        player.GetComponent<Player>().isMove = 0;
+        player.GetComponent<Player1>().isMove = 0;
     }
 
 }

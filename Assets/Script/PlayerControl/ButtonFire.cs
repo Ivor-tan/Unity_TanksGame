@@ -48,27 +48,45 @@ public class ButtonFire : MonoBehaviour
             {
 
                 //PropsManager.Instance.CreateProps(player.transform.position);
+                //player.GetComponent<Player1>().BulletLevel
 
                 //音效
                 AudioSource.PlayClipAtPoint(FireAudioSource, player.transform.position);
 
                 timeVal = 0;
 
-                switch (player.GetComponent<Player>().direction)
+                print("Fire====" + player.GetComponent<Player1>().BulletLevel);
+
+                GameObject CreateBullet;
+
+                switch (player.GetComponent<Player1>().direction)
                 {
                     case (1):
-                        Instantiate(bullet, player.GetComponent<Transform>().position, Quaternion.Euler(new Vector3(0, 0, 0))).GetComponent<Bullet>().SetFrom(0);
+                        CreateBullet = Instantiate(bullet, player.GetComponent<Transform>().position, Quaternion.Euler(new Vector3(0, 0, 0)));
+                        CreateBullet.GetComponent<Bullet>().SetFrom(0);
+                        CreateBullet.GetComponent<Bullet>().Level = player.GetComponent<Player1>().BulletLevel;
                         break;
                     case (2):
-                        Instantiate(bullet, player.GetComponent<Transform>().position, Quaternion.Euler(new Vector3(0, 0, 180))).GetComponent<Bullet>().SetFrom(0);
+                        CreateBullet = Instantiate(bullet, player.GetComponent<Transform>().position, Quaternion.Euler(new Vector3(0, 0, 180)));
+                        CreateBullet.GetComponent<Bullet>().SetFrom(0);
+                        CreateBullet.GetComponent<Bullet>().Level = player.GetComponent<Player1>().BulletLevel;
+
                         break;
                     case (3):
-                        Instantiate(bullet, player.GetComponent<Transform>().position, Quaternion.Euler(new Vector3(0, 0, 90))).GetComponent<Bullet>().SetFrom(0);
+                        CreateBullet = Instantiate(bullet, player.GetComponent<Transform>().position, Quaternion.Euler(new Vector3(0, 0, 90)));
+                        CreateBullet.GetComponent<Bullet>().SetFrom(0);
+                        CreateBullet.GetComponent<Bullet>().Level = player.GetComponent<Player1>().BulletLevel;
+
                         break;
                     case (4):
-                        Instantiate(bullet, player.GetComponent<Transform>().position, Quaternion.Euler(new Vector3(0, 0, -90))).GetComponent<Bullet>().SetFrom(0);
+                        CreateBullet = Instantiate(bullet, player.GetComponent<Transform>().position, Quaternion.Euler(new Vector3(0, 0, -90)));
+                        CreateBullet.GetComponent<Bullet>().SetFrom(0);
+                        CreateBullet.GetComponent<Bullet>().Level = player.GetComponent<Player1>().BulletLevel;
                         break;
                 }
+
+
+
             }
 
             //Instantiate(bullet, player.GetComponent<Transform>().position, transform.rotation);

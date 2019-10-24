@@ -8,7 +8,10 @@ public class Bullet : MonoBehaviour
     public float Speed = 10;
     private GameObject Bullet_0;
     private int from = 0; // 0  自己    1  敌人
+    private int level = 0; // 0  摧毁墙    1  摧砖
     public GameObject ExplodePerfeb;
+
+    public int Level { get => level; set => level = value; }
 
     public void Awake()
     {
@@ -64,8 +67,11 @@ public class Bullet : MonoBehaviour
 
                 break;
             case ("Bairrar"):
-
-                Instantiate(ExplodePerfeb, transform.position, transform.rotation);
+                print("Bairrar=====" + level+"======"+Level);
+                if (level == 1) {
+                    Destroy(collision.gameObject);
+                }
+                    Instantiate(ExplodePerfeb, transform.position, transform.rotation);
                 Destroy(gameObject);
                 break;
             case ("Grees"):

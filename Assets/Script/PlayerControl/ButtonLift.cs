@@ -21,7 +21,7 @@ public class ButtonLift : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
         playerImage = player.GetComponent<SpriteRenderer>();
 
-        speed = player.GetComponent<Player>().Speed;
+        speed = player.GetComponent<Player1>().Speed;
 
     }
 
@@ -48,7 +48,7 @@ public class ButtonLift : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
         playerImage = player.GetComponent<SpriteRenderer>();
 
-        speed = player.GetComponent<Player>().Speed;
+        speed = player.GetComponent<Player1>().Speed;
 
     }
 
@@ -56,11 +56,11 @@ public class ButtonLift : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         isPointerDown = true;
-        player.GetComponent<Player>().direction = 3;
-        if (player.GetComponent<Player>().isMove == 0)
+        player.GetComponent<Player1>().direction = 3;
+        if (player.GetComponent<Player1>().isMove == 0)
         {
             playerImage.sprite = image;
-            player.GetComponent<Player>().isMove = 3;
+            player.GetComponent<Player1>().isMove = 3;
         }
 
 
@@ -68,13 +68,13 @@ public class ButtonLift : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void OnPointerUp(PointerEventData eventData)
     {
         isPointerDown = false;
-        player.GetComponent<Player>().isMove = 0;
+        player.GetComponent<Player1>().isMove = 0;
     }
 
     private void FixedUpdate()
     {
 
-        if (isPointerDown && player.GetComponent<Player>().isMove == 3)
+        if (isPointerDown && player.GetComponent<Player1>().isMove == 3)
         {
             player.transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
         }

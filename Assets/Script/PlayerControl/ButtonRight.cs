@@ -47,14 +47,14 @@ public class ButtonRight : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
         playerImage = player.GetComponent<SpriteRenderer>();
 
-        speed = player.GetComponent<Player>().Speed;
+        speed = player.GetComponent<Player1>().Speed;
 
     }
 
 
     private void FixedUpdate()
     {
-        if (isPointerDown && player.GetComponent<Player>().isMove == 4)
+        if (isPointerDown && player.GetComponent<Player1>().isMove == 4)
         {
             player.transform.Translate(Vector3.right * speed * Time.deltaTime, Space.World);
         }
@@ -62,12 +62,12 @@ public class ButtonRight : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         isPointerDown = true;
-        player.GetComponent<Player>().direction = 4;
+        player.GetComponent<Player1>().direction = 4;
 
-        if (player.GetComponent<Player>().isMove == 0)
+        if (player.GetComponent<Player1>().isMove == 0)
         {
             playerImage.sprite = image;
-            player.GetComponent<Player>().isMove = 4;
+            player.GetComponent<Player1>().isMove = 4;
         }
      
 
@@ -75,7 +75,7 @@ public class ButtonRight : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void OnPointerUp(PointerEventData eventData)
     {
         isPointerDown = false;
-        player.GetComponent<Player>().isMove = 0;
+        player.GetComponent<Player1>().isMove = 0;
     }
 
 }

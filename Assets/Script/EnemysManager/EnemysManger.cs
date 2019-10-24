@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemysManger : MonoBehaviour
 {
 
-
+    public GameObject ExplodePerfabs;
 
     //敌人总数
     private int enemysTotal = 12;
@@ -35,7 +35,7 @@ public class EnemysManger : MonoBehaviour
 
     private void EnemysRecover()
     {
-        Speed = 3;
+        Speed = 2;
         IsFire = true;
         StopTime = 15;
     }
@@ -46,6 +46,7 @@ public class EnemysManger : MonoBehaviour
 
         for (int i = 0; i < Enemys.Length; i++)
         {
+            Instantiate(ExplodePerfabs, Enemys[i].transform.position,Quaternion.identity);
             Destroy(Enemys[i]);
         }
 
@@ -85,9 +86,9 @@ public class EnemysManger : MonoBehaviour
     public void CreateProps(Vector3 position)
     {
         //刷道具概率1/8
-        int create = Random.Range(1, 9);
+        int create = Random.Range(1, 6);
 
-        if (create == 8)
+        if (create == 5)
         {
             PropsManager.Instance.CreateProps(position);
             //Instantiate(Props[0], position, Quaternion.identity);

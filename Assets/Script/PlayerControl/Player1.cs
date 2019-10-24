@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player1 : MonoBehaviour
 {
     public int isMove = 0; //0 no Move  1  up  2 down  3 lift  4 right
     public int direction = 1;   //1  up  2 down  3 lift  4 right
@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     public GameObject ExplodePerfab;
     public GameObject Defendedfab;
     public GameObject BornPerfab;
+    private int bulletLevel = 0;// 0  摧毁墙    1  摧砖
+
     //音效
 
     public AudioClip ExplodeAudioSource;
@@ -17,6 +19,9 @@ public class Player : MonoBehaviour
     //private bool isDefended;
     //private float isDefendedTime;
     private float BornTime = 1;
+
+    public int BulletLevel { get => bulletLevel; set => bulletLevel = value; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +74,8 @@ public class Player : MonoBehaviour
         {
             return;
         }
+
+        bulletLevel = 0;
 
         AudioSource.PlayClipAtPoint(ExplodeAudioSource, gameObject.transform.position);
 
